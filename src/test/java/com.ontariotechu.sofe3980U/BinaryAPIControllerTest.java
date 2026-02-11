@@ -86,7 +86,6 @@ public class BinaryAPIControllerTest {
 
     @Test
     public void mulTypical() throws Exception {
-        // 111 (7) * 101 (5) = 35 -> 100011
         this.mvc.perform(get("/multiply").param("operand1", "111").param("operand2", "101"))
             .andExpect(status().isOk())
             .andExpect(MockMvcResultMatchers.jsonPath("$.operand1").value("111"))
@@ -106,12 +105,10 @@ public class BinaryAPIControllerTest {
     }
 
     private String toBinaryNoLeadingZeros(int x) {
-        // matches your Binary normalization: "0" stays "0"
         return (x == 0) ? "0" : Integer.toBinaryString(x);
     }
 
     private String norm(String s) {
-        // mimic Binary constructor normalization: strip leading zeros, but keep "0"
         int i = 0;
         while (i < s.length() && s.charAt(i) == '0') i++;
         String out = (i == s.length()) ? "0" : s.substring(i);
@@ -122,7 +119,7 @@ public class BinaryAPIControllerTest {
     public void andExhaustive2BitAllPairs() throws Exception {
         for (int a = 0; a <= 3; a++) {
             for (int b = 0; b <= 3; b++) {
-                String op1 = to2BitBinary(a); // "00","01","10","11"
+                String op1 = to2BitBinary(a);
                 String op2 = to2BitBinary(b);
                 String expected = toBinaryNoLeadingZeros(a & b);
 
@@ -153,6 +150,7 @@ public class BinaryAPIControllerTest {
             }
         }
     }
+
 
 
 
