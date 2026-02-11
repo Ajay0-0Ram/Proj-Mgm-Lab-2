@@ -13,7 +13,6 @@ public class BinaryAPIController {
 		Binary number1=new Binary (operand1);
 		Binary number2=new Binary (operand2);
         return  Binary.add(number1,number2).getValue();
-		// http://localhost:8080/add?operand1=111&operand2=1010
 	}
 	
 	@GetMapping("/add_json")
@@ -22,7 +21,6 @@ public class BinaryAPIController {
 		Binary number1=new Binary (operand1);
 		Binary number2=new Binary (operand2);
         return  new BinaryAPIResult(number1,"add",number2,Binary.add(number1,number2));
-		// http://localhost:8080/add?operand1=111&operand2=1010
 	}
 
 	@GetMapping("/multiply")
@@ -31,7 +29,6 @@ public class BinaryAPIController {
 		Binary number1=new Binary (operand1);
 		Binary number2=new Binary (operand2);
 		return  new BinaryAPIResult(number1,"multiply",number2,Binary.multiply(number1,number2));
-		// http://localhost:8080/multiply?operand1=111&operand2=1010
 	}
 
 	@GetMapping("/and")
@@ -40,7 +37,6 @@ public class BinaryAPIController {
 		Binary number1=new Binary (operand1);
 		Binary number2=new Binary (operand2);
 		return  new BinaryAPIResult(number1,"and",number2,Binary.and(number1,number2));
-		// http://localhost:8080/and?operand1=111&operand2=1010
 	}
 	
 	@GetMapping("/or")
@@ -49,7 +45,7 @@ public class BinaryAPIController {
 		Binary number1=new Binary (operand1);
 		Binary number2=new Binary (operand2);
 		return  new BinaryAPIResult(number1,"or",number2,Binary.or(number1,number2));
-		// http://localhost:8080/or?operand1=111&operand2=1010
 	}
+
 
 }
